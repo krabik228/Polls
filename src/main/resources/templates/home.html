@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Опросы</title>
+    <link href="../static/styles.css" rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
+</head>
+
+<body>
+<header class="header">
+    <div class="container">
+        <div class="nav">
+            <a href="/" class="title">Опросы</a>
+<!--            <a href="/login" class="login"><p>Вход</p></a>-->
+            <a href="/add" class="login">Добавить опрос</a>
+        </div>
+    </div>
+</header>
+<main class="container">
+    <div class="wrapper">
+        <div th:each="el : ${oprosi}" class="opros">
+            <h3 th:text="${el.title}" />
+            <p th:text="${el.text}">
+            <div class="check-oprosa">
+                <form style="width: 100%" method="post" action="/">
+                    <input type="text" name="id" style="display: none" th:value="${el.id}" />
+                    <label><div class="check-otveta" ><input type="radio" name="otv" id="first"  value="first" /><p style="line-height: 100%; padding: 5px; width: 90%" th:text="${el.otv1}" /><p style="line-height: 100%; padding: 5px; width: 5%; text-align: right" th:text="${el.stats1}" /></div></label><Br>
+                    <label><div class="check-otveta"><input type="radio" name="otv" id="second"  value="second" /><p style="line-height: 100%; padding: 5px; width: 90%" th:text="${el.otv2}" /><p style="line-height: 100%; padding: 5px; width: 5%; text-align: right" th:text="${el.stats2}" /></div></label><Br>
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+
+</html>

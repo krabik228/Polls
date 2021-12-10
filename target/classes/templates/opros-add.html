@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Опросы</title>
+    <link href="../static/styles.css" rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
+</head>
+
+<body>
+<header class="header">
+    <div class="container">
+        <div class="nav">
+            <a href="/" class="title">Опросы</a>
+            <a href="/add" class="login">Добавить опрос</a>
+        </div>
+    </div>
+</header>
+<main class="container">
+    <h1>Добавление опроса</h1>
+    <form action="/add" method="post">
+        <input required type="text" name="title" placeholder="Название опроса">
+        <input required type="text" name="text" placeholder="Текст опроса">
+        <input required type="text" name="otv1" placeholder="Вариант ответа 1">
+        <input required type="text" name="otv2" placeholder="Вариант ответа 2"><br>
+        <button type="submit">Добавить</button>
+    </form>
+</main>
+</body>
+
+</html>
